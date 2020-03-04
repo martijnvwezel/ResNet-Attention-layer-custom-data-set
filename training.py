@@ -109,9 +109,9 @@ validation_datagen = ImageDataGenerator(
 # * Prepare callbacks for model saving and for learning rate adjustment.
 data_dir = "logs/"
 # save model if its performing better # "model") 
-filepath = os.path.join(data_dir, "weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5")
+filepath = os.path.join(data_dir, "weights-improvement-{epoch:02d}-{val_accuracy:.2f}.hdf5")
 checkpoint = ModelCheckpoint(filepath=filepath,
-                             monitor='val_acc',
+                             monitor='val_accuracy',
                              verbose=1,
                              save_best_only=True)
 
@@ -119,7 +119,7 @@ checkpoint = ModelCheckpoint(filepath=filepath,
 lr_scheduler = LearningRateScheduler(lr_schedule)  # not better performance
 
 lr_reducer = ReduceLROnPlateau(
-    monitor='val_acc',
+    monitor='val_accuracy',
     factor=0.2,
     patience=7,
     min_lr=10e-7,
@@ -128,7 +128,7 @@ lr_reducer = ReduceLROnPlateau(
 )
 
 early_stopper = EarlyStopping(
-    monitor='val_acc',
+    monitor='val_accuracy',
     min_delta=0,
     patience=15,
     verbose=1
