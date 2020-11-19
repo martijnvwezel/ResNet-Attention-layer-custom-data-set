@@ -10,7 +10,11 @@ Data set structure:
 """
 import os
 import pickle
+import tensorflow as tf
+import keras.backend.tensorflow_backend as tfback
 
+print("tf.__version__ is", tf.__version__)
+print("tf.keras.__version__ is:", tf.keras.__version__)
 
 from keras.utils import to_categorical
 import keras
@@ -31,11 +35,11 @@ from load_data import load_custom_data
 
 
 # * Enable GPU POWER
-K.tensorflow_backend._get_available_gpus()
-config = tf.ConfigProto(device_count={'GPU': 1, 'CPU': 8}) # ! Need a change
-config.gpu_options.per_process_gpu_memory_fraction = 0.4   # ! Need a change
-sess = tf.Session(config=config)
-keras.backend.set_session(sess)
+# K.tensorflow_backend._get_available_gpus()
+# config = tf.experimental.ConfigProto(device_count={'GPU': 1, 'CPU': 8}) # ! Need a change
+# config.gpu_options.per_process_gpu_memory_fraction = 0.4   # ! Need a change
+# sess = tf.Session(config=config)
+# keras.backend.set_session(sess)
 
 #*#######################################################################
 # *
@@ -44,9 +48,12 @@ keras.backend.set_session(sess)
 #*#######################################################################
 
 
-# (x_train, y_train), (x_test, y_test) = cifar10.load_data()
+(x_train, y_train), (x_test, y_test) = cifar10.load_data()
 # (x_train, y_train), (x_test, y_test) = cifar100.load_data(label_mode='fine')
-(x_train, y_train), (x_test, y_test) = load_custom_data(path, training_size, validation_size)
+# (x_train, y_train), (x_test, y_test) = load_custom_data(path, training_size, validation_size)
+
+training_size = x_train.shape[0]
+validation_size = x_test.shape[0]
 
 y_train = to_categorical(y_train)
 y_test = to_categorical(y_test)
@@ -86,7 +93,7 @@ if DEBUG :
 
 # * save model to file
 model_json = model.to_json()
-with open('model_weights/'+'model.json', 'w') as json_file:
+with open('model_weights/'+'model.json', 'w+') as json_file:
     json_file.write(model_json)
 
 

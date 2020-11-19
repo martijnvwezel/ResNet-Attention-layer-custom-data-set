@@ -19,8 +19,8 @@ validation_size = 229
 num_classes = 10  # * number of classes
 class_names = ["Argo", "Gyas", "Laga", "Nereus", "Njord", "Orca", "Proteus", "Skadi", "Skoll", "Triton"]  # TODO make automatic
 
-img_width = 224
-img_height = 224
+img_width = 32
+img_height = 32
 
 # *  Network part
 epochs = 100

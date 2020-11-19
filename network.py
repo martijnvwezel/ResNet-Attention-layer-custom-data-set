@@ -43,7 +43,7 @@ def AttentionResNet18(shape=(224, 224, 3), n_channels=64, n_classes=5, dropout=0
 
     x = residual_block(x, output_channels=n_channels * 32, stride=2)  # 7x7
 
-    pool_size = (x.get_shape()[1].value, x.get_shape()[2].value)
+    pool_size = (x.get_shape()[1], x.get_shape()[2])
     x = AveragePooling2D(pool_size=pool_size, strides=(1, 1))(x)
     x = Flatten()(x)
     if dropout:
@@ -115,7 +115,7 @@ def AttentionResNet56(shape=(224, 224, 3), n_channels=64, n_classes=10, dropout=
     x = residual_block(x, output_channels=n_channels * 32)
     x = residual_block(x, output_channels=n_channels * 32)
 
-    pool_size = (x.get_shape()[1].value, x.get_shape()[2].value)
+    pool_size = (x.get_shape()[1], x.get_shape()[2])
     x = AveragePooling2D(pool_size=pool_size, strides=(1, 1))(x)
     x = Flatten()(x)
     if dropout:
@@ -158,7 +158,7 @@ def AttentionResNet92(shape=(224, 224, 3), n_channels=64, n_classes=100, dropout
     x = residual_block(x, output_channels=n_channels * 32)
     x = residual_block(x, output_channels=n_channels * 32)
 
-    pool_size = (x.get_shape()[1].value, x.get_shape()[2].value)
+    pool_size = (x.get_shape()[1], x.get_shape()[2])
     x = AveragePooling2D(pool_size=pool_size, strides=(1, 1))(x)
     x = Flatten()(x)
     if dropout:

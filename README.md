@@ -3,7 +3,7 @@ Here is a ResNet with attention layers that are designed for custom data sets. T
 
 # Usage
 Install with anaconda python 3 version and Keras. Go to the train directory.   
-Change in `vars.py` the variables for your data set.  
+Change in `vars.py` the variables for your dataset.  
   
  **Always double check if function `load_custom_data(...)` is uncommented if you learn on your own data set**
 ``` bash 
@@ -12,11 +12,11 @@ python training.py
 
 ```
 
-# Data set structure
+# Dataset structure
 The directory names (train, validation, test) can be changed in the `vars.py` file if needed.   
 In the `vars.py` there are some defines that depense on your data set, like the class_names.
 ```
-Data set structure: 
+Dataset structure: 
         [path_to_dataset]/train/[class_directorys]/[files]
         [path_to_dataset]/validation/[class_directorys]/[files]
         [path_to_dataset]/test/[class_directorys]/[files]

@@ -22,7 +22,7 @@ def residual_block(input, input_channels=None, output_channels=None, kernel_size
     https://arxiv.org/pdf/1603.05027.pdf
     """
     if output_channels is None:
-        output_channels = input.get_shape()[-1].value
+        output_channels = input.get_shape()[-1]
     if input_channels is None:
         input_channels = output_channels // 4
 
@@ -57,7 +57,7 @@ def attention_block(input, input_channels=None, output_channels=None, encoder_de
     t = 2
     r = 1
     if input_channels is None:
-        input_channels = input.get_shape()[-1].value
+        input_channels = input.get_shape()[-1]
 
     if output_channels is None:
         output_channels = input_channels
