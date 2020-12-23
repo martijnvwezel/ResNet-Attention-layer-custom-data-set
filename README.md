@@ -1,7 +1,7 @@
 # ResNet with attention-layer on custom data set.
 Here is a ResNet with attention layers that are designed for custom data sets. There is always a way for improvements, but this would get you started. `The training.py` is compatible with the CIFAR data sets. The attention layer is based on the following [github page](https://github.com/qubvel/residual_attention_network) (commit version: 15c111d).   
 
-*This is the cleaned version, maybe some mistakes namings are wrong*
+*This is the cleaned version, maybe some mistakes namings are wrong, like the test script is missing*
 # Usage
 Install with anaconda python 3 version and Keras. Go to the train directory.   
 Change in `vars.py` the variables for your dataset.  
