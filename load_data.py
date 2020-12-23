@@ -31,8 +31,8 @@ def load_class(path, idxx):
         Load a class into array
     """
     print( path )
-    x_train = np.array([read_pil_image(str(p), img_width, img_height) for p in Path(path + '/' + train_dir + '/' + class_names[idxx]).rglob("*.jpg")])
-    x_test  = np.array([read_pil_image(str(p), img_width, img_height) for p in Path(path + '/' + val_dir   + '/' + class_names[idxx]).rglob("*.jpg")])
+    x_train = np.array([read_pil_image(str(p), img_height, img_width) for p in Path(path + '/' + train_dir + '/' + class_names[idxx]).rglob("*.jpg")])
+    x_test  = np.array([read_pil_image(str(p), img_height, img_width) for p in Path(path + '/' + val_dir   + '/' + class_names[idxx]).rglob("*.jpg")])
 
     if K.image_data_format() == 'channels_first':
         x_train = np.rollaxis(x_train, 3, 1)
